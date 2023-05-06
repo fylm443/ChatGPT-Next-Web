@@ -43,6 +43,9 @@ jobs:
     steps:
     - name: Deploy to Azure Web App
       id: deploy-to-webapp
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        CODE: ${{ secrets.CODE }}
       uses: azure/webapps-deploy@v2
       with:
         app-name: 'fylmai'
