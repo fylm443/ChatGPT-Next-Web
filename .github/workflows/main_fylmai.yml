@@ -49,3 +49,6 @@ jobs:
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_36871d798d8d475f84f6ac925499b8bc }}
         images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_64b2aa58648945c9a5b2ed9dac46b965 }}/yidadaa/chatgpt-next-web:${{ github.sha }}'
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        CODE: ${{ secrets.CODE }}
