@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://index.docker.io/v1/
-        username: ${{ secrets.AzureAppService_ContainerUsername_1fd4cd06d2254426a3df432b726809dd }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_2dab6d8da6214daca8b7b1c12ad4f81c }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_f9f8b3f057f04d1e804586ffcc95d526 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_58eca00b922140898a40026f3431967a }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_1fd4cd06d2254426a3df432b726809dd }}/yidadaa/chatgpt-next-web:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_f9f8b3f057f04d1e804586ffcc95d526 }}/yidadaa/chatgpt-next-web:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'fylmai'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_ed53ea49ca7e453f84cbfa63c22baf56 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_1fd4cd06d2254426a3df432b726809dd }}/yidadaa/chatgpt-next-web:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_552add0106e648b48bee40c11329873e }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_f9f8b3f057f04d1e804586ffcc95d526 }}/yidadaa/chatgpt-next-web:${{ github.sha }}'
